@@ -11,6 +11,7 @@
 ``` vim
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 ```
 
 ののちに
@@ -22,6 +23,7 @@ NeoBundle 'Shougo/neosnippet'
 ``` vim
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
+let g:neocomplete#enable_at_startup = 1
 ```
 
 を追加し保存して、vimを終了 ``` :wq ```
