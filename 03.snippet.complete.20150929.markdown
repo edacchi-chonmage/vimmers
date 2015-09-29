@@ -1,0 +1,61 @@
+# アジェンダ
+
+1. neocomplete & neosnippetをインストールしよう
+2. 補完機能を利用してみよう
+3. 自分のスニペットを登録してみよう
+
+## 1. neocomplete & neosnippetをインストールしよう
+
+.vimrcに以下を追加
+
+``` vim
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+```
+
+ののちに
+
+``` call neobundle#end() ```
+
+よりもしたの行に
+
+``` vim
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+```
+
+を追加し保存して、vimを終了 ``` :wq ```
+
+## 2. 補完機能を利用してみよう
+
+1. ``` vim foo.js ``` ってしてjsファイルを開きます
+2. プラグインインストールの確認をされるので、「yes」にしてください
+
+``` for ``` とか打ってみると補完メニューが出てくるので、
+<C-n>, <C-p>などで上下に操作できるはず。
+
+どれにするかきめたら<C-k>を押下すると、補完が実行されます。
+
+### ちょっとデモします
+
+## 3. 自分のスニペットを登録してみよう
+
+``` :NeoSnippetEdit ``` とすると、javascriptのスニペットファイルが開かれます（まっしろ）
+そこにスニペットを追記していきます。
+
+※ 以下例
+
+```
+snippet consolelogtest
+alias cot
+  console.log(${1:'test'});
+
+snippet nonamefunction
+alias nn
+  function (${1}) {
+    ${2}
+  }
+```
+
+<C-k>を押したら、押した数に対応した数字の場所にカーソルが移動します。
+1:'hoge'とかってしておくと、'hoge'が入力された状態で当該の場所へ移動できます。
